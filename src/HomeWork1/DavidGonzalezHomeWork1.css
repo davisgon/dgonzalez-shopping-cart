@@ -1,0 +1,138 @@
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /*   phones  600px and down  */
+        @media only screen and (max-width: 600px) {
+            .cPhones {
+                width: 100%;
+                padding: 10px;
+                height: 450px;
+            }
+            h2.center {
+                width:500px;
+                margin: 0 auto;
+                background: white;
+                text-align: center;
+            }
+
+            h2.a {
+                visibility: hidden;
+              }
+              
+              h2.b {
+                visibility: hidden;
+              }
+              h2.c {
+                visibility: visible;
+              }
+
+        }
+
+        /*   tablets   600px and up)  */
+        @media only screen and (min-width: 600px) {
+
+            .ctablets {
+
+                float: left;
+                width: 50%;
+                padding: 10px;
+                height: 400px;
+            }
+
+            h2.center {
+                width:500px;
+                margin: 0 auto;
+                background: white;
+                text-align: center;
+            }
+
+            h2.a {
+                visibility: hidden;
+              }
+              
+              h2.b {
+                visibility: visible;
+              }
+              h2.c {
+                visibility: hidden;
+              }
+        }
+
+        /* pc  768px and up */
+        @media only screen and (min-width: 768px) {
+
+            .pc {
+                margin-top: 20px;
+                float: left;
+                width: 25%;
+                padding: 10px;
+                height: 450px;
+            }
+            
+            h2.center {
+                width:500px;
+                margin: 0 auto;
+                background: white;
+                text-align: center;
+            }
+
+            h2.a {
+                visibility: visible;
+              }
+              
+              h2.b {
+                visibility: hidden;
+              }
+              h2.c {
+                visibility: hidden;
+              }
+        }
+
+        h1 {
+            color: white;
+          
+            text-align:center;
+            padding: 50%;
+            vertical-align:middle; /*middle centred*/
+           
+        }
+
+
+        div {
+            text-align: center;
+        }
+
+        .myDiv1 {
+            background-color: red;
+        }
+
+        
+        .myDiv2 {
+            background-color: green;
+        }
+
+        .myDiv3 {
+            background-color: yellow;
+        }
+
+        .myDiv4 {
+            background-color: blue;
+        }
+
+       
+        .hTablet.title { visibility:hidden;}
+        .h2.Pc { visibility:hidden;}
+
+        /*  From css3patterns */
+        .myBack {
+            background:
+                radial-gradient(gray 15%, transparent 16%) 0 0,
+                radial-gradient(gray 15%, transparent 16%) 8px 8px,
+                radial-gradient(hsla(0, 16%, 85%, 0.479) 15%, transparent 20%) 0 1px,
+                radial-gradient(hsla(0, 16%, 85%, 0.479) 15%, transparent 20%) 8px 9px;
+            background-color: gray;
+            background-size: 16px 16px;
+        }
+       
