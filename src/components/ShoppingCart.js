@@ -12,6 +12,7 @@ const ShoppingCart = function () {
     const addToCart = (id) => {
         console.log(id);
         dispatch({ type: TYPES.ADD_TO_CART, payload: id });
+       
     };
 
     const delFromCart = (id, all = false) => {
@@ -28,37 +29,38 @@ const ShoppingCart = function () {
     };
 
     return (
-        
-        <table>
-             <h2>Shopping Cart</h2>
-            <tr>
-                <th style={{ width: '1200px'}}>
-                <h3>Products</h3>
-                </th>
-                <th>
-                <h3>Cart</h3>
-                <button onClick={clearCart}>Clear Cart</button>
-                </th>
+        <>
+            <table>
+                <h2>Shopping Cart</h2>
+                <tr>
+                    <th style={{ width: '1200px' }}>
+                        <h3>Products</h3>
+                    </th>
+                    <th>
+                        <h3>Cart</h3>
+                        <button onClick={clearCart}>Clear Cart</button>
+                    </th>
                 </tr>
-            
+
                 <td>
-                <article className="box grid-responsive">
-                    {products.map((product) => (
-                        <ProductItem key={product.id} data={product} addToCart={addToCart} />
-                    ))}
-                </article>
+                    <article className="box grid-responsive">
+                        {products.map((product) => (
+                            <ProductItem key={product.id} data={product} addToCart={addToCart} />
+                        ))}
+                    </article>
                 </td>
-              
-               
+
+
                 <td>
-                <article className="box  grid-responsive">
-                    {cart.map((item, index) => (
-                        <CartItem key={index} data={item} delFromCart={delFromCart} />
-                    ))}
-                </article>
+                    <article className="box2  grid-responsive">
+                        {cart.map((item, index) => (
+                            <CartItem key={index} data={item} delFromCart={delFromCart} />
+                        ))}
+                    </article>
                 </td>
-             
-        </table>
+
+            </table>
+        </>
     )
 }
 

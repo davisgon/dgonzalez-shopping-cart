@@ -1,13 +1,13 @@
 import { TYPES } from "../actions/shoppingActions";
 import cartItems from '../data'
 //import useEffect from 'react'
-
+//const url = 'https://course-api.com/react-useReducer-cart-project'
 /* useEffect(() => {
     axios.get(url).then(data => setCart(data.data)).catch(err => console.log(err))
   }, []); */
 
 export const shoppingInitialState = {
-    products : cartItems,
+    products: cartItems,
     cart: [],
 };
 
@@ -31,6 +31,7 @@ export function shoppingReducer(state, action) {
                         item.id === newItem.id
                             ? { ...item, quantity: item.quantity + 1 }
                             : item
+
                     ),
                 }
                 : {

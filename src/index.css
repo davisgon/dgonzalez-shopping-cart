@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,6 +17,12 @@ body {
   box-shadow: 0 0 1rem #00000025 inset;
 }
 
+.box2 {
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 1rem #f3f0f025 inset;
+}
+
 .grid-responsive {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -21,4 +31,24 @@ body {
 
 .my-cart-img {
   width: 3rem;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+.column2 {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
