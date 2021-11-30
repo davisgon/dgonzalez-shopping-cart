@@ -1,20 +1,19 @@
 import { TYPES } from "../actions/shoppingActions";
 import cartItems from '../data'
 //import useEffect from 'react'
-//const url = 'https://course-api.com/react-useReducer-cart-project'
-/* useEffect(() => {
-    axios.get(url).then(data => setCart(data.data)).catch(err => console.log(err))
-  }, []); */
+const url = 'https://course-api.com/react-useReducer-cart-project'
+/*useEffect(() => {
+   axios.get(url).then(data => setCart(data.data)).catch(err => console.log(err))
+ }, []); */
 
 export const shoppingInitialState = {
     products: cartItems,
     cart: [],
+    totalCart: 0,
+    totAmount: 0,
 };
 
 export function shoppingReducer(state, action) {
-
-
-
     switch (action.type) {
         case TYPES.ADD_TO_CART: {
             let newItem = state.products.find(
@@ -27,6 +26,7 @@ export function shoppingReducer(state, action) {
             return itemInCart
                 ? {
                     ...state,
+                    totAmount: state.totAmount + 3,
                     cart: state.cart.map((item) =>
                         item.id === newItem.id
                             ? { ...item, quantity: item.quantity + 1 }
@@ -36,6 +36,7 @@ export function shoppingReducer(state, action) {
                 }
                 : {
                     ...state,
+
                     cart: [...state.cart, { ...newItem, quantity: 1 }],
                 };
         }
@@ -59,11 +60,34 @@ export function shoppingReducer(state, action) {
         case TYPES.REMOVE_ALL_FROM_CART: {
             return {
                 ...state,
+                totalCart: 0,
+                totAmount: 0,
                 cart: state.cart.filter((item) => item.id !== action.payload),
             };
         }
-        case TYPES.CLEAR_CART:
+        case TYPES.ADD_TOT_CART: {
+
+            return {
+                ...state,
+                totalCart: state.totalCart + 1,
+
+            }
+
+        }
+        case TYPES.REMOVE_TOT_CART: {
+
+            return {
+                ...state,
+                totalCart: state.totalCart - 1,
+            }
+
+        }
+        case TYPES.CLEAR_CART:{
             return shoppingInitialState;
+        }
+         
+
+        //** */
         default:
             return state;
     }

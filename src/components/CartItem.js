@@ -1,15 +1,14 @@
 const CartItem = ({ data, delFromCart }) => {
-    let { id, title, price, img, quantity } = data;
 
     return (
         <div style={{ borderBottom: "thin solid gray" }}>
-            <h4>{title}</h4>
-            <h5>
-                ${price}  x {quantity} = ${price * quantity} 
-            </h5>
             <img src={data.img} alt={data.title} className="my-cart-img" />
-            <button onClick={() => delFromCart(id)}>Remove One</button>
-            <button onClick={() => delFromCart(id, true)}>Remove All</button>
+            <h4>{data.title}</h4>
+            <h5>
+                ${data.price}  x {data.quantity} = $ {(data.price * data.quantity).toFixed(2)}
+            </h5>
+            <button onClick={() => delFromCart(data.id)}>Remove One</button>
+            <button onClick={() => delFromCart(data.id, true)}>Remove All</button>
             <br />
             <br />
         </div>
