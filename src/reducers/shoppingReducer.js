@@ -6,13 +6,18 @@ const url = 'https://course-api.com/react-useReducer-cart-project'
    axios.get(url).then(data => setCart(data.data)).catch(err => console.log(err))
  }, []); */
 
+fetch(url)
+    .then(response => response.json())
+    .then(cartItems => console.log(cartItems));
+const cartItemss = cartItems;
+
+
 export const shoppingInitialState = {
-    products: cartItems,
+    products: cartItemss,
     cart: [],
     totalCart: 0,
     totAmount: 0,
 };
-
 export function shoppingReducer(state, action) {
     switch (action.type) {
         case TYPES.ADD_TO_CART: {
@@ -82,10 +87,10 @@ export function shoppingReducer(state, action) {
             }
 
         }
-        case TYPES.CLEAR_CART:{
+        case TYPES.CLEAR_CART: {
             return shoppingInitialState;
         }
-         
+
 
         //** */
         default:

@@ -11,13 +11,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.box {
+.myBoxCart {
   padding: 1rem;
   margin: 1rem;
   box-shadow: 0 0 1rem #00000025 inset;
 }
 
-.box2 {
+.myBoxCart2 {
   padding: 1rem;
   margin: 1rem;
   box-shadow: 0 0 1rem #f3f0f025 inset;
@@ -115,4 +115,63 @@ nav svg {
   background: var(--clr-red-light);
   color: var(--clr-red-dark);
   border-color: var(--clr-red-light);
+}
+
+.amount-btn {
+  width: 1.5rem;
+  background: goldenrod;
+  border: none;
+  cursor: pointer;
+}
+ 
+.amount-btn:hover svg {
+  fill: var(--clr-primary-light);
+}
+
+.remove-btn {
+  color: blue;
+  letter-spacing: var(--spacing);
+  cursor: pointer;
+  font-size: 0.85rem;
+  background: transparent;
+  border: none;
+  margin-top: 0.375rem;
+  transition: var(--transition);
+}
+.remove-btn:hover {
+  color: red;
+}
+
+.clearButton {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 9px #999;
+}
+
+.clearButton:hover {background-color: red}
+
+.clearButton:active {
+  background-color: red;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+table {
+  
+  table-layout: auto;
+}
+table tr th {
+  text-align: center;
+}
+h2 {
+  color: goldenrod ;
 }

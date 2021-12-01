@@ -1,24 +1,28 @@
-import { useReducer } from "react"
+import { useContext, useReducer } from "react"
 import { TYPES } from "../actions/shoppingActions";
+import Navbar from "../Navbar";
 import { shoppingInitialState, shoppingReducer } from "../reducers/shoppingReducer"
 import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
+import { useGlobalContext } from './ShoppingContext'
+ 
 
 
 const ShoppingCart = function () {
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
     const { products, cart, totalCart, totAmount } = state;
-    let type = 'dec';
+ 
+ 
 
     const addToCart = (id) => {
         // console.log("id:"+id);
         dispatch({ type: TYPES.ADD_TO_CART, payload: id });
         dispatch({ type: TYPES.ADD_TOT_CART });
         dispatch({ type: TYPES.TOGGLE_AMOUNT });
-
+  
     };
 
-    const delFromCart = (id, all = false) => {
+    const removeFromCart = (id, all = false) => {
         //console.log(id, all);
         if (all) {
             dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id });
@@ -38,26 +42,26 @@ const ShoppingCart = function () {
             <table>
                 <tr>
                     <th style={{ width: '1200px' }}>
-                        <h3>Products</h3>
+                        <h2>Available products</h2>
                     </th>
                     <th>
-                        <button onClick={clearCart}>Clear Cart --></button>
-                         {totalCart}
+                        <button className='clearButton'  onClick={clearCart}>Clear Cart</button>
+                         <p> {'Total Items: '+totalCart} </p>
+                       
                         <br />
-                      
                     </th>
                 </tr>
                 <td>
-                    <article className="box grid-responsive">
+                    <article className="myBoxCart grid-responsive">
                         {products.map((product) => (
                             <ProductItem key={product.id} data={product} addToCart={addToCart} />
                         ))}
                     </article>
                 </td>
                 <td>
-                    <article className="box2  grid-responsive">
+                    <article className="myBoxCart2  grid-responsive">
                         {cart.map((item, index) => (
-                            <CartItem key={index} data={item} delFromCart={delFromCart} />
+                            <CartItem key={index} data={item} removeFromCart={removeFromCart} />
                         ))}
                     </article>
                 </td>
