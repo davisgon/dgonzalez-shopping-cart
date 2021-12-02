@@ -8,6 +8,7 @@ const Navbar = () => {
     <nav>
       <div className='nav-center'>
         <h3>Shopping Cart</h3>
+        <h3>Total Cart</h3>
       </div>
     </nav>
   )

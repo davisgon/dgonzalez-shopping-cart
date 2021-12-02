@@ -13,21 +13,19 @@ const ShoppingCart = function () {
     const addToCart = (id) => {
         // console.log("id:"+id);
         dispatch({ type: TYPES.ADD_TO_CART, payload: id });
-        dispatch({ type: TYPES.ADD_TOT_CART });
-        dispatch({ type: TYPES.TOGGLE_AMOUNT });
-
     };
 
     const removeFromCart = (id, all = false) => {
         if (all) {
+            console.log("trueeeeeeeeeeeeeeeeeeee");
             console.log(all);
             dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id });
         } else {
+            console.log("falseeeeeeeeeeeeeeeeeeeeeeee");
             dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id });
-            dispatch({ type: TYPES.REMOVE_TOT_CART });
+            dispatch({ type: TYPES.REMOVE_TOT_CART, payload: id });
         }
     };
-
     const clearCart = () => {
         dispatch({ type: TYPES.CLEAR_CART });
     };
@@ -40,7 +38,8 @@ const ShoppingCart = function () {
                         <h2>Available products</h2>
                     </th>
                     <th>
-                        <p> {'Total Items: ' + totalCart} </p>
+                        <p> {'  Items: ' + totalCart} </p>
+                        <p> {' Amount: $' + totAmount.toFixed(2)} </p>
                         <button className='clearButton' onClick={clearCart}>Clear Cart</button>
                         <br />
                     </th>
@@ -54,9 +53,11 @@ const ShoppingCart = function () {
                 </td>
                 <td>
                     <article className="myBoxCart2  grid-responsive">
+
                         {cart.map((item, index) => (
                             <CartItem key={index} data={item} removeFromCart={removeFromCart} />
                         ))}
+
                     </article>
                 </td>
 
