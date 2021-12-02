@@ -25,7 +25,6 @@ const ShoppingCart = function () {
         } else {
             dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id });
             dispatch({ type: TYPES.REMOVE_TOT_CART });
-
         }
     };
 
