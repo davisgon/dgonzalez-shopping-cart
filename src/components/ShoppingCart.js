@@ -15,13 +15,10 @@ const ShoppingCart = function () {
         dispatch({ type: TYPES.ADD_TO_CART, payload: id });
     };
 
-    const removeFromCart = (id, all = false) => {
-        if (all) {
-            console.log("trueeeeeeeeeeeeeeeeeeee");
-            console.log(all);
+    const removeFromCart = (id, removeAll = false) => {
+        if (removeAll) {
             dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id });
         } else {
-            console.log("falseeeeeeeeeeeeeeeeeeeeeeee");
             dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id });
             dispatch({ type: TYPES.REMOVE_TOT_CART, payload: id });
         }
