@@ -3,7 +3,7 @@ const AppContext = React.createContext();
 
 
 const AppProvider = ({ children }) => {
-    const data = {
+    const dataCartItem = {
         number: 123,
         text: "ABC",
         func: () => {
@@ -16,7 +16,7 @@ const AppProvider = ({ children }) => {
         <AppContext.Provider
             value={{
 
-                data,
+                dataCartItem,
                 valor,
             }}
         >

@@ -5,31 +5,27 @@ import { shoppingInitialState, shoppingReducer } from "../reducers/shoppingReduc
 import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
 import { useGlobalContext } from './ShoppingContext'
- 
-
 
 const ShoppingCart = function () {
     const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
     const { products, cart, totalCart, totAmount } = state;
- 
- 
 
     const addToCart = (id) => {
         // console.log("id:"+id);
         dispatch({ type: TYPES.ADD_TO_CART, payload: id });
         dispatch({ type: TYPES.ADD_TOT_CART });
         dispatch({ type: TYPES.TOGGLE_AMOUNT });
-  
+
     };
 
     const removeFromCart = (id, all = false) => {
-        //console.log(id, all);
         if (all) {
+            console.log(all);
             dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id });
         } else {
             dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id });
             dispatch({ type: TYPES.REMOVE_TOT_CART });
-           
+
         }
     };
 
@@ -45,9 +41,8 @@ const ShoppingCart = function () {
                         <h2>Available products</h2>
                     </th>
                     <th>
-                        <button className='clearButton'  onClick={clearCart}>Clear Cart</button>
-                         <p> {'Total Items: '+totalCart} </p>
-                       
+                        <p> {'Total Items: ' + totalCart} </p>
+                        <button className='clearButton' onClick={clearCart}>Clear Cart</button>
                         <br />
                     </th>
                 </tr>

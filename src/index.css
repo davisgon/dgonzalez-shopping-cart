@@ -32,20 +32,7 @@ body {
 .my-cart-img {
   width: 3rem;
 }
-
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-.column2 {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
+ 
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -174,4 +161,9 @@ table tr th {
 }
 h2 {
   color: goldenrod ;
+}
+/*   */
+.myDivCart {
+  border: black;
+   
 }

@@ -63,6 +63,7 @@ export function shoppingReducer(state, action) {
                 };
         }
         case TYPES.REMOVE_ALL_FROM_CART: {
+            console.log (state);
             return {
                 ...state,
                 totalCart: 0,
